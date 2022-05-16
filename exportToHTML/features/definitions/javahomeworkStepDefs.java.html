@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>javahomeworkStepDefs.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #000080; font-weight: bold;}
+.s1 { color: #000000;}
+.s2 { color: #008000; font-weight: bold;}
+.s3 { color: #0000ff;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+javahomeworkStepDefs.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span>definitions;
+
+<span class="s0">import </span>cucumber.api.java.en.And;
+<span class="s0">import </span>cucumber.api.java.en.Given;
+<span class="s0">import </span>org.openqa.selenium.remote.server.handler.DeleteSession;
+
+<span class="s0">public class </span>javahomeworkStepDefs {
+    @Given(<span class="s2">&quot;I confert {int} foot to centimeters&quot;</span>)
+    <span class="s0">public void </span>iConfertFootToCentimeters(<span class="s0">int </span>iFoot) {
+        System.out.println(<span class="s2">&quot;Value in centimeters is: &quot; </span>+ iFoot*<span class="s3">30.48</span>);
+    }
+
+    @And(<span class="s2">&quot;I convert {int} US gallon to liters&quot;</span>)
+    <span class="s0">public void </span>iConvertUSGallonToLiters(<span class="s0">int </span>iGal) {
+        System.out.println(<span class="s2">&quot;Value in liters is: &quot; </span>+ iGal*<span class="s3">3.78</span>);
+    }
+
+    @And(<span class="s2">&quot;I convert {int} Celsius to Fahrenheit&quot;</span>)
+    <span class="s0">public void </span>iConvertCelsiusToFahrenheit(<span class="s0">int </span>iCel) {
+        System.out.println(<span class="s2">&quot;Temperature in Fahrenheit is: &quot; </span>+ ((iCel*<span class="s3">9</span>/<span class="s3">5</span>)+<span class="s3">32</span>));
+    }
+
+    @Given(<span class="s2">&quot;I check if number {int} is odd or even&quot;</span>)
+    <span class="s0">public void </span>iCheckIfNumberIsOddOrEven(<span class="s0">int </span>iNum) {
+        <span class="s0">if </span>(iNum % <span class="s3">2 </span>== <span class="s3">0</span>){
+        System.out.println(<span class="s2">&quot;The number &quot; </span>+iNum+ <span class="s2">&quot; is even.&quot;</span>);}
+        <span class="s0">else</span>{
+                System.out.println(<span class="s2">&quot;The number &quot; </span>+iNum+ <span class="s2">&quot; is odd.&quot;</span>);
+            }
+
+    }
+
+    @Given(<span class="s2">&quot;I got {int} percent on my test&quot;</span>)
+    <span class="s0">public void </span>iGotPercentOnMyTest(<span class="s0">int </span>iPer) {
+        <span class="s0">if </span>(iPer&gt;=<span class="s3">90 </span>&amp;&amp; iPer&lt;=<span class="s3">100</span>){
+            System.out.println(<span class="s2">&quot;You passed with grade &quot; </span>+ <span class="s2">&quot;A&quot;</span>);
+        } <span class="s0">else if </span>(iPer&gt;=<span class="s3">80 </span>&amp;&amp; iPer&lt;=<span class="s3">89</span>){
+            System.out.println(<span class="s2">&quot;You passed with grade &quot; </span>+ <span class="s2">&quot;B&quot;</span>);
+        } <span class="s0">else if </span>(iPer&gt;=<span class="s3">70 </span>&amp;&amp; iPer&lt;=<span class="s3">79</span>){
+            System.out.println(<span class="s2">&quot;You passed with grade &quot; </span>+ <span class="s2">&quot;C&quot;</span>);
+        } <span class="s0">else if </span>(iPer &gt;= <span class="s3">60 </span>&amp;&amp; iPer &lt;= <span class="s3">69</span>) {
+            System.out.println(<span class="s2">&quot;You passed with grade &quot; </span>+ <span class="s2">&quot;D&quot;</span>);
+        } <span class="s0">else</span>
+            System.out.println(<span class="s2">&quot;You passed with grade &quot; </span>+ <span class="s2">&quot;F&quot;</span>);
+    }
+
+
+    @Given(<span class="s2">&quot;I find the cost of {int} pounds of {string}&quot;</span>)
+    <span class="s0">public void </span>iFindTheCostOfPoundsOf(<span class="s0">int </span>iPound, String sFruit) {
+        <span class="s0">double</span>[] iCost = {<span class="s3">1.5</span>, <span class="s3">2.1</span>, <span class="s3">1.6</span>, <span class="s3">1.3</span>, <span class="s3">1.9</span>};
+        <span class="s0">for </span>(<span class="s0">int </span>i=<span class="s3">0</span>; i&lt;iCost.length; i++);
+        <span class="s0">switch </span>(sFruit){
+            <span class="s0">case </span><span class="s2">&quot;apples&quot;</span>: <span class="s0">double </span>acost = iCost[<span class="s3">0</span>]*iPound;
+                System.out.println(<span class="s2">&quot;Cost of apples is &quot; </span>+ acost + <span class="s2">&quot;$&quot;</span>);<span class="s0">break</span>;
+            <span class="s0">case </span><span class="s2">&quot;cherries&quot;</span>: <span class="s0">double </span>ccost = iCost[<span class="s3">1</span>]*iPound;
+                System.out.println(<span class="s2">&quot;Cost of cherries is &quot; </span>+ ccost + <span class="s2">&quot;$&quot;</span>);<span class="s0">break</span>;
+            <span class="s0">case </span><span class="s2">&quot;plums&quot;</span>: <span class="s0">double </span>pcost = iCost[<span class="s3">2</span>]*iPound;
+                System.out.println(<span class="s2">&quot;Cost of plums is &quot; </span>+ pcost + <span class="s2">&quot;$&quot;</span>);<span class="s0">break</span>;
+            <span class="s0">case </span><span class="s2">&quot;grapefruits&quot;</span>: <span class="s0">double </span>gcost = iCost[<span class="s3">3</span>]*iPound;
+                System.out.println(<span class="s2">&quot;Cost of grapefruits is &quot; </span>+ gcost + <span class="s2">&quot;$&quot;</span>);<span class="s0">break</span>;
+            <span class="s0">case </span><span class="s2">&quot;oranges&quot;</span>: <span class="s0">double </span>ocost = iCost[<span class="s3">4</span>]*iPound;
+                System.out.println(<span class="s2">&quot;Cost of oranges is &quot; </span>+ ocost + <span class="s2">&quot;$&quot;</span>);<span class="s0">break</span>;
+            <span class="s0">default</span>: System.out.println(<span class="s2">&quot;This product is unavailable&quot;</span>);
+        }
+        }
+
+    @Given(<span class="s2">&quot;I print out all elements in the array&quot;</span>)
+    <span class="s0">public void </span>iPrintOutAllElementsInTheArray() {
+        String[] week = {<span class="s2">&quot;Monday&quot;</span>, <span class="s2">&quot;Tuesday&quot;</span>, <span class="s2">&quot;Wednesday&quot;</span>, <span class="s2">&quot;Thursday&quot;</span>, <span class="s2">&quot;Friday&quot;</span>, <span class="s2">&quot;Saturday&quot;</span>, <span class="s2">&quot;Sunday&quot;</span>};
+        <span class="s0">for </span>(<span class="s0">int </span>i = <span class="s3">0</span>; i &lt; week.length; i++) {
+            System.out.println(week[i]);
+                      }
+              }
+    }
+
+
+
+
+</pre>
+</body>
+</html>
